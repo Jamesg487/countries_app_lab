@@ -48,7 +48,7 @@ const MainContainer = () => {
                 <div className="country-list">
                 <CountriesList countries={countries} onCountrySelected={onCountrySelected}/>
                 </div>
-                <FavouritesList favouriteCountries={favouriteCountries}/> 
+                <FavouritesList favouriteCountries={favouriteCountries} onCountrySelected={onCountrySelected}/> 
                 {selectedCountry ? <CountryInfo favouriteCountries={favouriteCountries} selectedCountry={selectedCountry} addFavouriteCountry={addFavouriteCountry}/> : null}
             </div>
         </>

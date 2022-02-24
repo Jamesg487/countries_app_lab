@@ -16,7 +16,7 @@ const CountryInfo = ({selectedCountry, addFavouriteCountry, favouriteCountries})
             return "Remove from"
         }else {
             return "Add to"
-        };
+        }
     };
 
     return ( 
