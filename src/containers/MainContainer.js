@@ -2,11 +2,13 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import CountriesList from '../components/CountriesList';
 import CountryInfo from '../components/CountryInfo'
+import FavouritesList from '../components/FavouritesList';
 
 const MainContainer = () => {
 
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
+    const [favouriteCountries, setFavouriteCountries] = useState([]);
 
     useEffect(() => {
         getCountries();
@@ -23,13 +25,21 @@ const MainContainer = () => {
         .then(data => setCountries(data));
        
     }
+
+    const addFavouriteCountry = (favouriteCountry) => {
+        const copyOfFavouriteCountries = [...favouriteCountries, favouriteCountry]
+        setFavouriteCountries(copyOfFavouriteCountries);
+    }
+
+
     return (  
         <>
             <div className="main-container">
                 <div className="country-list">
                 <CountriesList countries={countries} onCountrySelected={onCountrySelected}/>
                 </div>
-                {selectedCountry ? <CountryInfo selectedCountry = {selectedCountry}/> : null}
+                <FavouritesList favouriteCountries={favouriteCountries}/> 
+                {selectedCountry ? <CountryInfo selectedCountry={selectedCountry} addFavouriteCountry={addFavouriteCountry}/> : null}
             </div>
         </>
     );
