@@ -27,8 +27,10 @@ const MainContainer = () => {
     }
 
     const addFavouriteCountry = (favouriteCountry) => {
-        const copyOfFavouriteCountries = [...favouriteCountries, favouriteCountry]
-        setFavouriteCountries(copyOfFavouriteCountries);
+        const countryInList = favouriteCountries.includes(favouriteCountry)
+        if (countryInList) {return} 
+        else {const copyOfFavouriteCountries = [...favouriteCountries, favouriteCountry]
+        setFavouriteCountries(copyOfFavouriteCountries)}
     }
 
 
