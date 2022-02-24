@@ -1,14 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import CountriesList from '../components/CountriesList';
+import CountryInfo from '../components/CountryInfo'
 
 const MainContainer = () => {
 
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
-
-
-
 
     useEffect(() => {
         getCountries();
@@ -27,7 +25,12 @@ const MainContainer = () => {
     }
     return (  
         <>
-            <CountriesList countries={countries} onCountrySelected={onCountrySelected}/>
+            <div className="main-container">
+                <div className="country-list">
+                <CountriesList countries={countries} onCountrySelected={onCountrySelected}/>
+                </div>
+                {selectedCountry ? <CountryInfo selectedCountry = {selectedCountry}/> : null}
+            </div>
         </>
     );
 }
