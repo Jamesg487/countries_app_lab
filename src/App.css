@@ -1,6 +1,7 @@
 .main-container {
   display: flex;
   justify-content:space-between;
+  padding-right: 50px;
 }
 .flag-img {
   width: 300px;

@@ -1,9 +1,22 @@
 import React from 'react'
 
-const CountryInfo = ({selectedCountry, addFavouriteCountry}) => {
+
+
+const CountryInfo = ({selectedCountry, addFavouriteCountry, favouriteCountries}) => {
+
+    
 
     const handleAddCountry = () => {
         addFavouriteCountry(selectedCountry);
+    }
+
+    const checkCountryInFavourites = () => {
+        const countryInList = favouriteCountries.includes(selectedCountry);
+        if (countryInList){
+            return "Remove from"
+        }else {
+            return "Add to"
+        }
     }
 
     return ( 
@@ -14,7 +27,7 @@ const CountryInfo = ({selectedCountry, addFavouriteCountry}) => {
             <p>Capital: {selectedCountry.capital}</p>
             <p>Population: {selectedCountry.population}</p>
             <p>Main Currency: {selectedCountry.currencies[0].name} ({selectedCountry.currencies[0].symbol})</p>
-            <button onClick={handleAddCountry}>Add to Favourites List</button>
+            <button onClick={handleAddCountry}> {checkCountryInFavourites()} Favourites List</button>
             
         </div>
      );

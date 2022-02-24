@@ -24,14 +24,20 @@ const MainContainer = () => {
         .then(results => results.json())
         .then(data => setCountries(data));
        
-    }
+    };
 
     const addFavouriteCountry = (favouriteCountry) => {
         const countryInList = favouriteCountries.includes(favouriteCountry)
-        if (countryInList) {return} 
+
+        if (countryInList) {
+            console.log(`${favouriteCountry.name} removed`);
+            favouriteCountries.splice(favouriteCountries.indexOf(favouriteCountry), 1);
+            const copyOfFavouriteCountries = [...favouriteCountries]
+            setFavouriteCountries(copyOfFavouriteCountries);     
+        } 
         else {const copyOfFavouriteCountries = [...favouriteCountries, favouriteCountry]
         setFavouriteCountries(copyOfFavouriteCountries)}
-    }
+    };
 
 
     return (  
@@ -41,7 +47,7 @@ const MainContainer = () => {
                 <CountriesList countries={countries} onCountrySelected={onCountrySelected}/>
                 </div>
                 <FavouritesList favouriteCountries={favouriteCountries}/> 
-                {selectedCountry ? <CountryInfo selectedCountry={selectedCountry} addFavouriteCountry={addFavouriteCountry}/> : null}
+                {selectedCountry ? <CountryInfo favouriteCountries={favouriteCountries} selectedCountry={selectedCountry} addFavouriteCountry={addFavouriteCountry}/> : null}
             </div>
         </>
     );
