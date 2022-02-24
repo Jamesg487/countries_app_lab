@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useState, useEffect } from 'react';
 import CountriesList from '../components/CountriesList';
 import CountryInfo from '../components/CountryInfo'
@@ -16,7 +16,7 @@ const MainContainer = () => {
 
     const onCountrySelected = (country) => {
         setSelectedCountry(country);
-        console.log(`You have selected ${country.name}`)
+        console.log(`You have selected ${country.name}`);
     };
 
     const getCountries = () => {
@@ -27,16 +27,18 @@ const MainContainer = () => {
     };
 
     const addFavouriteCountry = (favouriteCountry) => {
-        const countryInList = favouriteCountries.includes(favouriteCountry)
+        const countryInList = favouriteCountries.includes(favouriteCountry);
 
         if (countryInList) {
             console.log(`${favouriteCountry.name} removed`);
             favouriteCountries.splice(favouriteCountries.indexOf(favouriteCountry), 1);
-            const copyOfFavouriteCountries = [...favouriteCountries]
+            const copyOfFavouriteCountries = [...favouriteCountries];
             setFavouriteCountries(copyOfFavouriteCountries);     
         } 
-        else {const copyOfFavouriteCountries = [...favouriteCountries, favouriteCountry]
-        setFavouriteCountries(copyOfFavouriteCountries)}
+        else {
+        const copyOfFavouriteCountries = [...favouriteCountries, favouriteCountry];
+        setFavouriteCountries(copyOfFavouriteCountries);
+    }
     };
 
 
