@@ -20,13 +20,20 @@ const CountryInfo = ({selectedCountry, addFavouriteCountry, favouriteCountries})
     };
 
     return ( 
-        <div>
-            <h1>{selectedCountry.name}</h1>
-            <img className="flag-img" src={selectedCountry.flag} alt="Country Flag"/>
+        <div className="main-info-box">
+            <div className="top-info-box">
+                <div className="name-favourite-box">
+                    <h1>{selectedCountry.name}</h1>
+                    <button onClick={handleAddCountry}> {checkCountryInFavourites()} Favourites List</button>
+                </div>
+                <div className="image-box">
+                    <img className="flag-img" src={selectedCountry.flag} alt="Country Flag"/>
+                </div>
+            </div>
             <p>Capital: {selectedCountry.capital}</p>
             <p>Population: {selectedCountry.population}</p>
             <p>Main Currency: {selectedCountry.currencies[0].name} ({selectedCountry.currencies[0].symbol})</p>
-            <button onClick={handleAddCountry}> {checkCountryInFavourites()} Favourites List</button>   
+  
         </div>
      );
 }

@@ -45,10 +45,21 @@ const MainContainer = () => {
     return (  
         <>
             <div className="main-container">
-                <div className="country-list">
-                <CountriesList countries={countries} onCountrySelected={onCountrySelected}/>
+                <div class="favourite-color">
+                    <h2>Favourite countries</h2>
+                    <div className="list-container">
+                    <FavouritesList className="lists" favouriteCountries={favouriteCountries} onCountrySelected={onCountrySelected}/> 
+
+                    </div>
                 </div>
-                <FavouritesList favouriteCountries={favouriteCountries} onCountrySelected={onCountrySelected}/> 
+                
+                <div className="country-color">
+                    <h2>Country List</h2>
+                    <div className="list-container">
+                        <CountriesList countries={countries} onCountrySelected={onCountrySelected}/>
+
+                    </div>
+                </div>
                 {selectedCountry ? <CountryInfo favouriteCountries={favouriteCountries} selectedCountry={selectedCountry} addFavouriteCountry={addFavouriteCountry}/> : null}
             </div>
         </>
