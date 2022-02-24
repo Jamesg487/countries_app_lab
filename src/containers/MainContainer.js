@@ -11,8 +11,9 @@ const MainContainer = () => {
 
     const getCountries = () => {
         fetch("https://restcountries.com/v2/all")
-        .then(results => results.json)
+        .then(results => results.json())
         .then(data => setCountries(data));
+        console.log(countries);
     }
 
 

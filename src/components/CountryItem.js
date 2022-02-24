@@ -1,7 +1,7 @@
 const CountryItem = ({country}) => {
     return ( 
         <>
-           <li>{}</li> 
+           <li>{country.name}</li> 
         </>
      );
 }
