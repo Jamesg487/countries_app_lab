@@ -45,7 +45,7 @@ const MainContainer = () => {
     return (  
         <>
             <div className="main-container">
-                <div class="favourite-color">
+                <div className="favourite-color">
                     <h2>Favourite countries</h2>
                     <div className="list-container">
                     <FavouritesList className="lists" favouriteCountries={favouriteCountries} onCountrySelected={onCountrySelected}/> 

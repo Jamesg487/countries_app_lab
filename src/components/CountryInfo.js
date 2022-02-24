@@ -23,7 +23,7 @@ const CountryInfo = ({selectedCountry, addFavouriteCountry, favouriteCountries})
         <div className="main-info-box">
             <div className="top-info-box">
                 <div className="name-favourite-box">
-                    <h1>{selectedCountry.name}</h1>
+                    <h3 className="country-title">{selectedCountry.name}</h3>
                     <button onClick={handleAddCountry}> {checkCountryInFavourites()} Favourites List</button>
                 </div>
                 <div className="image-box">
