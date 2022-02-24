@@ -1,9 +1,10 @@
+import React from 'react'
 import CountryItem from "./CountryItem";
 
-const CountriesList = ({countries}) => {
+const CountriesList = ({countries, onCountrySelected}) => {
 
     const countryNodes = countries.map((country) => {
-        return <CountryItem country={country} key={country.alpha3Code} />
+        return <CountryItem onCountrySelected= {onCountrySelected} country={country} key={country.alpha3Code} />
     });
 
     return ( 

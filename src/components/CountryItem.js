@@ -1,7 +1,13 @@
-const CountryItem = ({country}) => {
+import React from 'react'
+const CountryItem = ({country, onCountrySelected}) => {
+
+   const handleClick = () => {
+      onCountrySelected(country)
+   }
+
     return ( 
         <>
-           <li>{country.name}</li> 
+           <li onClick={handleClick}>{country.name}</li> 
         </>
      );
 }
