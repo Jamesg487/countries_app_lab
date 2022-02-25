@@ -26,6 +26,8 @@ const MainContainer = () => {
        
     };
 
+    const totalPopulation = countries.reduce((total, nextPopulation) => {return total + nextPopulation.population}, 0);
+
     const addFavouriteCountry = (favouriteCountry) => {
         const countryInList = favouriteCountries.includes(favouriteCountry);
 
@@ -49,7 +51,6 @@ const MainContainer = () => {
                     <h2>Favourite countries</h2>
                     <div className="list-container">
                     <FavouritesList className="lists" favouriteCountries={favouriteCountries} onCountrySelected={onCountrySelected}/> 
-
                     </div>
                 </div>
                 
@@ -57,8 +58,8 @@ const MainContainer = () => {
                     <h2>Country List</h2>
                     <div className="list-container">
                         <CountriesList countries={countries} onCountrySelected={onCountrySelected}/>
-
                     </div>
+                    <h4>World Population: {totalPopulation}</h4>
                 </div>
                 {selectedCountry ? <CountryInfo favouriteCountries={favouriteCountries} selectedCountry={selectedCountry} addFavouriteCountry={addFavouriteCountry}/> : null}
             </div>
